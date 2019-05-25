@@ -52,8 +52,19 @@ multiplyNums(5, 4, (x, y) => x * y);
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  return cb(item, list);
 }
 
+function doesHave(item, list) {
+  for(let i = 0; i < list.length; i++) {
+    if(list[i] === item) {
+      return true;
+    }
+  }
+  return false;
+}
+
+contains("Gum", items, doesHave);
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {
